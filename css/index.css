@@ -1,0 +1,20 @@
+body {
+    background-color: #f5f5f5;
+    color: #181818;
+    font-family: "Poppins";
+    font-weight: 400;
+}
+
+.lighter-text {
+    color: rgb(15 15 15 / 68%);
+}
+
+.text-pink {
+    color: #e60086;
+}
+
+.title {
+    font-family: "Dancing Script";
+    font-weight: 700;
+    font-size: 1.5rem;
+}
