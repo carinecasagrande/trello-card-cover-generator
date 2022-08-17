@@ -12,3 +12,11 @@ The result can be seen [here](https://carinecasagrande.github.io/trello-card-cov
     <img style="margin: 20px" src="https://cdn.iconscout.com/icon/free/png-256/jquery-10-1175155.png" alt="jQuery" height="50" />
   </a>
 </div>
+
+## Libraries and Utilities
+- [Google Fonts](https://fonts.google.com/)
+- [toastr](https://github.com/CodeSeven/toastr)
+
+## Credits and thanks
+- [@viclafouch](https://gist.github.com/viclafouch) for the helpful [gist](https://gist.github.com/viclafouch/36d3edf58633a25c8b973588cc13480e) about how to copy image to clipboard.
+- Inspired on [tover](https://github.com/parnpresso/tover) by [@parnpresso](https://github.com/parnpresso)
