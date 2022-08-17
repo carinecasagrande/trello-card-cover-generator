@@ -6,45 +6,121 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trello Card Cover Generator</title>
-    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <!-- CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="./css/google-fonts.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" defer></script>
+    <script src="./js/index.js" defer></script>
 </head>
 
 <body>
-    <nav class="navbar sticky-top bg-white border-bottom">
-        <div class="container">
-            <div class="navbar-brand d-flex align-items-center">
-                <i class="fa-solid fa-icons me-2 fa-2x text-pink"></i>
-                <span class="title">Trello Card Cover Generator</span>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container mx-auto p-4">
-        <div class="card border">
-            <div class="card-body">
-                <p class="lighter-text">
-                    Opções
-                </p>
-                <div class="divider"></div>
-                <div class="row g-2">
-                    <div class="col-12">
-                        <label for="exampleColorInput" class="form-label">Color picker</label>
-                        <input type="color" class="form-control form-control-color" id="exampleColorInput"
-                            value="#563d7c" title="Choose your color">
+    <div class="container mx-auto">
+        <h3 class="title text-center mb-0 mt-5">
+            Trello Card Cover Generator
+        </h3>
+        <p class="text-center mt-1 mb-0">
+            Created by <a href="https://github.com/carinecasagrande" target="_blank">carinecasagrande</a>
+        </p>
+        <div class="row justify-content-center mt-2 mb-3 g-2">
+            <div class="col-12 col-lg-4">
+                <form class="mb-0" id="form-config">
+                    <div class="row g-2">
+                        <!-- Text -->
+                        <div class="col-12">
+                            <label for="text" class="form-label">
+                                Text
+                            </label>
+                            <input type="text" class="form-control" id="text" value="📝 To Do" />
+                        </div>
+                        <!-- Background Color -->
+                        <div class="col-12">
+                            <label for="background-color" class="form-label">
+                                Background Color
+                            </label>
+                            <input type="color" id="background-color" data-style="background-color"
+                                class="form-control form-control-color" value="#222222">
+                        </div>
+                        <!-- Text Color -->
+                        <div class="col-12">
+                            <label for="text-color" class="form-label">
+                                Text Color
+                            </label>
+                            <input type="color" id="text-color" data-style="color"
+                                class="form-control form-control-color" value="#ffffff">
+                        </div>
+                        <!-- Height -->
+                        <div class="col-12">
+                            <label for="height" class="form-label">
+                                Card Height
+                                <small class="text-muted me-2">(rem)</small>
+                            </label>
+                            <input type="number" class="form-control" id="height" data-style="height" min="0"
+                                value="8" />
+                        </div>
+                        <!-- Padding -->
+                        <div class="col-12">
+                            <label for="padding" class="form-label">
+                                Padding
+                                <small class="text-muted me-2">(rem)</small>
+                            </label>
+                            <input type="number" class="form-control" data-style="padding" id="padding" min="0"
+                                value="1" />
+                        </div>
+                        <!-- Font Size -->
+                        <div class="col-12">
+                            <label for="font-size" class="form-label">
+                                Font Size
+                                <small class="text-muted me-2">(rem)</small>
+                            </label>
+                            <input type="number" class="form-control" data-style="font-size" id="font-size" min="0"
+                                value="1.5" />
+                        </div>
+                        <!-- Weight -->
+                        <div class="col-12">
+                            <label for="weight" class="form-label">
+                                Weight
+                            </label>
+                            <select class="form-select" data-style="font-weight" id="weight">
+                                <option value="700">Bold</option>
+                                <option value="400">Regular</option>
+                            </select>
+                        </div>
+                        <!-- Font -->
+                        <div class="col-12">
+                            <label for="font-family" class="form-label">
+                                Font
+                            </label>
+                            <select class="form-select" data-style="font-family" id="font-family">
+                                <option value="Roboto">Roboto</option>
+                                <option value="Poppins">Poppins</option>
+                                <option value="Playfair Display">Playfair Display</option>
+                                <option value="Lora">Lora</option>
+                                <option value="DynaPuff">DynaPuff</option>
+                                <option value="Dancing Script">Dancing Script</option>
+                                <option value="Source Code Pro">Source Code Pro</option>
+                                <option value="Roboto Mono">Roboto Mono</option>
+                                <option value="Noto Sans">Noto Sans</option>
+                            </select>
+                        </div>
                     </div>
+                </form>
+            </div>
+            <div class="col-12 col-lg-4 result">
+                <div id="card-result">
+                    📝 To Do
                 </div>
+                <div class="card-subtitle">
+                    Copy and paste this image into a card on Trello.
+                </div>
+                <button class="btn" id="btn-copy">Click to copy</button>
             </div>
         </div>
     </div>
