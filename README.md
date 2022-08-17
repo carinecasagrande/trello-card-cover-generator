@@ -19,4 +19,4 @@ The result can be seen [here](https://carinecasagrande.github.io/trello-card-cov
 
 ## Credits and thanks
 - [@viclafouch](https://gist.github.com/viclafouch) for the helpful [gist](https://gist.github.com/viclafouch/36d3edf58633a25c8b973588cc13480e) about how to copy image to clipboard.
-- Inspired on [tover by @parnpresso](https://github.com/parnpresso/tover)
+- Inspired on [tover](https://github.com/parnpresso/tover) by [@parnpresso](https://github.com/parnpresso)
