@@ -18,5 +18,5 @@ The result can be seen [here](https://carinecasagrande.github.io/trello-card-cov
 - [toastr](https://github.com/CodeSeven/toastr)
 
 ## Credits and thanks
-- (@viclafouch)[https://gist.github.com/viclafouch] for the helpful (gist)[https://gist.github.com/viclafouch/36d3edf58633a25c8b973588cc13480e] to copy image to clipboard.
-- Inspired by (tover by @parnpresso)[https://github.com/parnpresso/tover]
+- [@viclafouch](https://gist.github.com/viclafouch) for the helpful [gist](https://gist.github.com/viclafouch/36d3edf58633a25c8b973588cc13480e) to copy image to clipboard.
+- Inspired by [tover by @parnpresso](https://github.com/parnpresso/tover)
